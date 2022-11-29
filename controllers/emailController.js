@@ -8,8 +8,8 @@ exports.sendMail = async function (data) {
     try {
         if (data.email) {
             let config = {
-                host: process.env.SMPT,
-                port: process.env.SMPTPORT,
+                host: process.env.SMTP,
+                port: process.env.SMTPPORT,
                 secure: true,
                 auth: {
                   user: process.env.USERMAIL,
