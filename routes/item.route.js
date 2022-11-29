@@ -95,5 +95,25 @@ router.put('/:hash', async (req, res) => {
     }
 });
 
+router.delete('/:hash', async (req, res) => {
+    try {
+        const { hash } = req.params
+
+        const item = await itemController.deleteItem({
+            hash
+        });
+    
+        if (item) {
+            return success(res, item, 'Item created successfully!')
+        } else {
+            return dataNotFound(res, item)
+        }
+
+    } catch (err) {
+        console.log(err)
+        return errorHandler(err, req, res)
+    }
+});
+
 
 module.exports = router;

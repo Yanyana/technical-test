@@ -70,16 +70,18 @@ describe('POST Item', () => {
 
 describe('update item', () => {
   it('PUT / sukses mengubah data item (test api)', async () => {
-    let hash = await itemController.readItem();
+    let hash = await itemController.readItems();
+
+    let randomStr = await itemController.makeid(20);
+    
     let sampleItemVal = {
-      name: 'sample item',
-      price: 10,
-      rating: '5',
-      hash: hash
+      name: randomStr,
+      price: Math.floor(Math.random() * 100),
+      rating: '5'
     };
 
     chai.request(server)
-      .post('/api/item')
+      .put('/api/item/'+hash[0].hash)
       .send(sampleItemVal)
       .end((err, response) => {
         expect(response).to.have.status(200);
@@ -87,8 +89,24 @@ describe('update item', () => {
         expect(response.body.data)
           .should.be.a('object');
         expect(response.body.data)
-          .to.have.property('name')
-          .to.equal('sample item');
+          .to.have.property('name');
+      });
+  });
+});
+
+describe('delete item', () => {
+  it('PUT / sukses mengubah data item (test api)', async () => {
+    let hash = await itemController.readItems();
+
+    chai.request(server)
+      .delete('/api/item/' + hash[0].hash)
+      .end((err, response) => {
+        expect(response).to.have.status(200);
+        expect(response.body).to.have.property('status');
+        expect(response.body.data)
+          .should.be.a('object');
+        expect(response.body.data)
+          .to.have.property('name');
       });
   });
 });

@@ -39,15 +39,14 @@ exports.createItem = async function (itemObj) {
             hash
         } = itemObj;
     
-        let item = Item.findOneAndUpdate(hash, {
+        let item = new Item({
             name,
             rating,
-            price
-        }, {
-            returnOriginal: false
+            price,
+            hash
         });
     
-        return item
+        return await item.save();
     } catch (err) {
         console.log(err)
         return Promise.reject(err);
@@ -57,6 +56,45 @@ exports.createItem = async function (itemObj) {
 exports.updateItem = async function (itemObj) {
     if (!itemObj || !itemObj.name || !itemObj.rating || !itemObj.price || !itemObj.hash) {
         throw new Error('Invalid arguments');
+    }
+
+    try {
+        const {
+            name,
+            rating,
+            price,
+            hash
+        } = itemObj;
+
+        const update = {
+            name,
+            rating,
+            price
+        }
+    
+        let item = Item.findOneAndUpdate(hash, update, {
+            returnOriginal: false
+        });
+        return item
+    } catch (err) {
+        return Promise.reject(err);
+    }
+}
+
+exports.deleteItem = async function(itemObj) {
+    if (!itemObj.hash) {
+        throw new Error('Invalid arguments');
+    }
+
+    try {
+        const {
+            hash
+        } = itemObj;
+    
+        let item = Item.findOneAndDelete(hash);
+        return item
+    } catch (err) {
+        return Promise.reject(err);
     }
 }
 
