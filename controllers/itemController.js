@@ -15,6 +15,16 @@ exports.readItem = async function (hash) {
     }
 };
 
+exports.readItems = async function (hash) {
+    try {
+  
+      return await Item.find();
+
+    } catch (err) {
+      return Promise.reject(err);
+    }
+};
+
 exports.createItem = async function (itemObj) {
     if (!itemObj || !itemObj.name || !itemObj.rating || !itemObj.price || !itemObj.hash) {
         throw new Error('Invalid arguments');
@@ -29,17 +39,24 @@ exports.createItem = async function (itemObj) {
             hash
         } = itemObj;
     
-        let item = new Item({
+        let item = Item.findOneAndUpdate(hash, {
             name,
             rating,
-            price,
-            hash
+            price
+        }, {
+            returnOriginal: false
         });
     
-        return await item.save();
+        return item
     } catch (err) {
         console.log(err)
         return Promise.reject(err);
+    }
+}
+
+exports.updateItem = async function (itemObj) {
+    if (!itemObj || !itemObj.name || !itemObj.rating || !itemObj.price || !itemObj.hash) {
+        throw new Error('Invalid arguments');
     }
 }
 
@@ -50,5 +67,14 @@ exports.makeid = async function(length) {
     for ( var i = 0; i < length; i++ ) {
         result += characters.charAt(Math.floor(Math.random() * charactersLength));
     }
-    return result;
+
+    let checkItem = await Item.findOne({
+        hash: result
+    });
+
+    if (!checkItem) {
+        return result;
+    } else {
+        this.makeid(10);
+    }
 }
