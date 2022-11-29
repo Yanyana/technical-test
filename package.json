@@ -19,6 +19,7 @@
     "mocha-junit-reporter": "^2.2.0",
     "mongoose": "^6.7.3",
     "nodemailer": "^6.8.0",
-    "nodemon": "^2.0.20"
+    "nodemon": "^2.0.20",
+    "redis": "^4.5.1"
   }
 }
