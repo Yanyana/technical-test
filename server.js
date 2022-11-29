@@ -27,8 +27,12 @@ mongoose.connect(MONGODB_URL, {
 });
 
 // Route
-app.use("/api/v1", require("./routes"));
+app.use("/api/", require("./routes"));
 app.use("/", errorHandler);
 
-app.listen(PORT);
-console.log(`Server listening at port: ` + PORT);
+
+let server = app.listen(PORT, function () {
+    console.log(`Server listening at port: ` + PORT);
+});
+
+module.exports = server;
