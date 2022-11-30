@@ -2,7 +2,7 @@
   "scripts": {
     "start": "nodemon server.js",
     "test": "mocha ./tests/*.js",
-    "test:watch": "mocha --watch ./tests/*.js --exit"
+    "test:watch": "mocha --exit ./tests/*.js"
   },
   "devDependencies": {
     "chai": "^4.3.7",
@@ -10,12 +10,10 @@
     "mocha": "^10.1.0"
   },
   "dependencies": {
-    "amqplib": "^0.10.3",
     "body-parser": "^1.20.1",
     "cors": "^2.8.5",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
-    "istanbul": "^0.4.5",
     "mocha-junit-reporter": "^2.2.0",
     "mongoose": "^6.7.3",
     "nodemailer": "^6.8.0",
