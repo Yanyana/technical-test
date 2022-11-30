@@ -6,6 +6,7 @@ saya berharap tahap technical test yang saya kerjakan sesuai dengan yang bapak/i
 * [Mengunduh repository ke dalam komputer](https://github.com/Yanyana/technical-test/README#mengunduh-repository)
 * [Technologi yang dipakai](https://github.com/datascienceid/README#technologi-yang-dipakai)
 * [Configuration environment](https://github.com/datascienceid/README#configuration-environment)
+* [Cara Menjalankan](https://github.com/datascienceid/README#cara-menjalankan)
 * [Daftar API](https://github.com/datascienceid/README#daftar-api)
 
 ## Mengunduh Repository
@@ -34,6 +35,17 @@ USERMAIL=<email user yang ingin dipakai menjadi pengirim>
 PASSMAIL=<password email>
 REDIS_HOST=<alamat redis server ex:127.0.0.1>
 REDIS_PORT=<port redis ex:6379>
+```
+
+## Cara Menjalankan
+```
+npm i
+```
+```
+npm run test
+```
+```
+npm run start
 ```
 
 ## Daftar API
