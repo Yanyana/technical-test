@@ -5,7 +5,7 @@ const corsOptions = {
     process.env.NODE_ENV === 'production' && !process.env.FORCE_DEV
       ? [
           'site_production',
-          process.env.NOW_URL, // untuk mengijinkan site/alamat untuk mengakses
+          process.env.URL, // untuk mengijinkan site/alamat untuk mengakses
         ].filter(Boolean)
       : [/localhost/],
   credentials: true,

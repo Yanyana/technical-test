@@ -7,7 +7,7 @@ var should = chai.should();
 const server = require('../server');
 const itemController = require('../controllers/itemController');
 
-describe('GET item /:hash', () => {
+describe('GET item one /:hash', () => {
   it('sukses mengambil item dengan parameter :has', async () => {
     let randomStr = await itemController.makeid(10);
     chai.request(server)
@@ -95,18 +95,15 @@ describe('update item', () => {
 });
 
 describe('delete item', () => {
-  it('PUT / sukses mengubah data item (test api)', async () => {
+  it('Delete / sukses menghapus data item (test api)', async () => {
     let hash = await itemController.readItems();
 
     chai.request(server)
       .delete('/api/item/' + hash[0].hash)
       .end((err, response) => {
         expect(response).to.have.status(200);
-        expect(response.body).to.have.property('status');
         expect(response.body.data)
           .should.be.a('object');
-        expect(response.body.data)
-          .to.have.property('name');
       });
   });
 });
