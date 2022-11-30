@@ -101,7 +101,7 @@ describe('delete item', () => {
     chai.request(server)
       .delete('/api/item/' + hash[0].hash)
       .end((err, response) => {
-        expect(response).to.have.status(200);
+        expect(response.body).to.have.property('status');
         expect(response.body.data)
           .should.be.a('object');
       });
