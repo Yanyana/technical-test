@@ -3,11 +3,11 @@ Dengan Hormat.
 saya ucapkan terimakasih atas kesempatan yang telah diberikan oleh bapak/ibu untuk sampai tahap ini.
 saya berharap tahap technical test yang saya kerjakan sesuai dengan yang bapak/ibu harapkan.
 # Panduan
-* [Mengunduh repository ke dalam komputer](https://github.com/Yanyana/technical-test/README#mengunduh-repository)
-* [Technologi yang dipakai](https://github.com/datascienceid/README#technologi-yang-dipakai)
-* [Configuration environment](https://github.com/datascienceid/README#configuration-environment)
-* [Cara Menjalankan](https://github.com/datascienceid/README#cara-menjalankan)
-* [Daftar API](https://github.com/datascienceid/README#daftar-api)
+* [Mengunduh repository ke dalam komputer](https://github.com/Yanyana/technical-test/tree/master#mengunduh-repository)
+* [Technologi yang dipakai](https://github.com/Yanyana/technical-test/tree/master#technologi-yang-dipakai)
+* [Configuration environment](https://github.com/Yanyana/technical-test/tree/master#configuration-environment)
+* [Cara Menjalankan](https://github.com/Yanyana/technical-test/tree/master#cara-menjalankan)
+* [Daftar API](https://github.com/Yanyana/technical-test/tree/master#daftar-api)
 
 ## Mengunduh Repository
 Unduh repository ke dalam komputer menggunakan perintah `git clone`. Url
