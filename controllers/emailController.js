@@ -27,11 +27,9 @@ exports.sendMail = async function (data) {
                 from: process.env.USERMAIL, // sender address
                 to: data.email, // list of receivers
                 subject: data.subject ? data.subject : 'greetings', // Subject line
-                text: data.subject ? data.subject : "Hello world?", // plain text body
+                text: data.text ? data.text : "Hello world?", // plain text body
                 // html: "<b>Hello world?</b>", // html body
             });
-
-            console.log(info)
 
             console.log("Message sent: %s", info.messageId);
             // Message sent: <b658f8ca-6296-ccf4-8306-87d57a0b4321@example.com>

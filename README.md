@@ -92,3 +92,16 @@ body (JSON)
 ```
 ​http://localhost:3000/api/item/:hash
 ```
+
+* EMAIL QUEUE POST
+```
+​http://localhost:3000/api/email
+```
+body (JSON)
+```
+{
+  "email": "people@man.id",
+  "subject": "greetings",
+  "text": "Hallo world"
+}
+```
